@@ -4,78 +4,180 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>K-달력 (K-Calendar) - 대한민국 전통 일력 & 음력 달력</title>
+    <meta name="description" content="한국의 전통과 현대적 실용성의 조화. 100년 음력, 24절기, 3D 종이 일력, 손없는 날, 사주 띠 분석 캘린더">
     <style>
+        :root {
+            --primary: #8C2D19;
+            --primary-hover: #732414;
+            --bg: #FBF9F5;
+            --card-bg: #FFFFFF;
+            --text-main: #2D241E;
+            --text-sub: #665C54;
+            --border: #ECE4D8;
+        }
+        * {
+            box-sizing: border-box;
+        }
         body {
-            font-family: -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", "Pretendard", sans-serif;
             margin: 0;
-            padding: 40px 20px;
-            background-color: #FBF9F5;
-            color: #2D241E;
+            padding: 30px 16px;
+            background-color: var(--bg);
+            color: var(--text-main);
             display: flex;
             justify-content: center;
             align-items: center;
-            min-height: 80vh;
+            min-height: 100vh;
         }
         .container {
-            max-width: 600px;
+            max-width: 760px;
+            width: 100%;
+            background: var(--card-bg);
+            border-radius: 24px;
+            box-shadow: 0 12px 36px rgba(140, 45, 25, 0.08);
+            border: 1px solid var(--border);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+        .banner-wrap {
+            width: 100%;
+            background-color: #F8F9FB;
+            border-bottom: 1px solid var(--border);
+            overflow: hidden;
+            line-height: 0;
+        }
+        .banner-img {
+            width: 100%;
+            height: auto;
+            display: block;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+        .content-area {
+            padding: 32px 28px;
             text-align: center;
-            background: white;
-            padding: 40px 30px;
-            border-radius: 20px;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
-            border: 1px solid #ECE4D8;
         }
         h1 {
-            font-size: 26px;
-            margin-bottom: 8px;
-            color: #8C2D19;
+            font-size: 24px;
+            margin: 0 0 10px 0;
+            color: var(--primary);
+            font-weight: 700;
+            letter-spacing: -0.5px;
         }
-        p {
+        p.desc {
+            font-size: 15px;
             line-height: 1.6;
-            color: #665C54;
-            margin-bottom: 24px;
+            color: var(--text-sub);
+            margin: 0 auto 28px auto;
+            max-width: 580px;
         }
         .btn-group {
             display: flex;
+            flex-direction: column;
             gap: 10px;
+            align-items: center;
+        }
+        a.btn {
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 15px;
+            border-radius: 14px;
+            transition: all 0.2s ease;
+            cursor: pointer;
+        }
+        a.btn-download {
+            background-color: var(--primary);
+            color: #FFFFFF;
+            width: 100%;
+            max-width: 420px;
+            padding: 15px 24px;
+            font-size: 16px;
+            box-shadow: 0 4px 14px rgba(140, 45, 25, 0.25);
+        }
+        a.btn-download:hover {
+            background-color: var(--primary-hover);
+            transform: translateY(-1px);
+        }
+        .sub-btn-group {
+            display: flex;
+            gap: 8px;
+            width: 100%;
+            max-width: 420px;
             justify-content: center;
             flex-wrap: wrap;
         }
-        a.btn {
-            display: inline-block;
-            padding: 12px 20px;
-            border-radius: 12px;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 14px;
-            transition: opacity 0.2s;
+        a.btn-sub {
+            flex: 1 1 120px;
+            background-color: #F5EFE9;
+            color: var(--text-main);
+            padding: 11px 16px;
+            font-size: 13px;
         }
-        a.btn-primary {
-            background-color: #8C2D19;
-            color: white;
-            width: 100%;
-            margin-bottom: 6px;
-            font-size: 16px;
-            padding: 14px 20px;
+        a.btn-sub:hover {
+            background-color: #EAE1D7;
         }
-        a.btn-secondary {
-            background-color: #F3EFEA;
-            color: #4A3E37;
+        .footer {
+            margin-top: 24px;
+            font-size: 12px;
+            color: #9E938A;
         }
-        a.btn:hover {
-            opacity: 0.85;
+        @media (max-width: 480px) {
+            .content-area {
+                padding: 24px 18px;
+            }
+            h1 {
+                font-size: 21px;
+            }
+            p.desc {
+                font-size: 14px;
+            }
+            .sub-btn-group {
+                flex-direction: column;
+            }
+            a.btn-sub {
+                width: 100%;
+            }
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>K-달력 (K-Calendar)</h1>
-        <p>전통 한지 일력과 100년 음력 계산, 24절기, 손없는 날, 12간지 사주팔자까지 담은 대한민국 대표 전통 감성 달력</p>
-        <div class="btn-group">
-            <a href="https://apps.apple.com/app/id6829391447" class="btn btn-primary">App Store에서 다운로드</a>
-            <a href="https://awake-soil-a17.notion.site/K-K-Calendar-Support-40b1dca18ee181d4ba3fc09431fbc900" class="btn btn-secondary" target="_blank" rel="noopener">고객 지원 (Support)</a>
-            <a href="https://awake-soil-a17.notion.site/K-K-Calendar-40b1dca18ee181d59138d4b957669347" class="btn btn-secondary" target="_blank" rel="noopener">개인정보 처리방침</a>
-            <a href="/app-ads.txt" class="btn btn-secondary">app-ads.txt</a>
+        <!-- 상단 프로모션 배너 이미지 -->
+        <div class="banner-wrap">
+            <img src="/banner.jpg" alt="K-달력 한국의 전통과 현대적 실용성의 조화" class="banner-img">
+        </div>
+
+        <!-- 하단 본문 및 메뉴 -->
+        <div class="content-area">
+            <h1>K-달력 (K-Calendar)</h1>
+            <p class="desc">
+                100년 정밀 음력 변환, 24절기, 손없는 날(이사·길일), 3D 찢는 한지 일력부터 12간지 사주팔자까지 담은 대한민국 대표 전통 캘린더
+            </p>
+
+            <div class="btn-group">
+                <a href="https://apps.apple.com/app/id6829391447" class="btn btn-download" target="_blank" rel="noopener">
+                     App Store에서 무료 다운로드
+                </a>
+                <div class="sub-btn-group">
+                    <a href="https://awake-soil-a17.notion.site/K-K-Calendar-Support-40b1dca18ee181d4ba3fc09431fbc900" class="btn btn-sub" target="_blank" rel="noopener">
+                        고객 지원 (Support)
+                    </a>
+                    <a href="https://awake-soil-a17.notion.site/K-K-Calendar-40b1dca18ee181d59138d4b957669347" class="btn btn-sub" target="_blank" rel="noopener">
+                        개인정보 처리방침
+                    </a>
+                    <a href="/app-ads.txt" class="btn btn-sub">
+                        app-ads.txt
+                    </a>
+                </div>
+            </div>
+
+            <div class="footer">
+                © 2026 Kant (Jung Gu Kim). All rights reserved.
+            </div>
         </div>
     </div>
 </body>
