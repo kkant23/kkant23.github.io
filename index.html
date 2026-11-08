@@ -5,6 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>K-달력 (K-Calendar) - 대한민국 전통 일력 & 음력 달력</title>
     <meta name="description" content="한국의 전통과 현대적 실용성의 조화. 100년 음력, 24절기, 3D 종이 일력, 손없는 날, 사주 띠 분석 캘린더">
+    <link rel="alternate" hreflang="ko" href="https://kkant23.github.io/">
+    <link rel="alternate" hreflang="en" href="https://kkant23.github.io/en/">
+    <link rel="alternate" hreflang="ja" href="https://kkant23.github.io/ja/">
+    <link rel="alternate" hreflang="x-default" href="https://kkant23.github.io/">
     <style>
         :root {
             --primary: #8C2D19;
@@ -39,6 +43,33 @@
             overflow: hidden;
             display: flex;
             flex-direction: column;
+        }
+        .lang-bar {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            padding: 10px 18px;
+            background: #FAFAFA;
+            border-bottom: 1px solid var(--border);
+            gap: 6px;
+        }
+        .lang-btn {
+            padding: 5px 12px;
+            font-size: 13px;
+            font-weight: 500;
+            color: var(--text-sub);
+            text-decoration: none;
+            border-radius: 16px;
+            transition: all 0.2s ease;
+        }
+        .lang-btn:hover {
+            background: #EFE8E1;
+            color: var(--text-main);
+        }
+        .lang-btn.active {
+            background: var(--primary);
+            color: #FFFFFF;
+            font-weight: 600;
         }
         .banner-wrap {
             width: 100%;
@@ -146,9 +177,16 @@
 </head>
 <body>
     <div class="container">
+        <!-- 언어 선택 바 -->
+        <div class="lang-bar">
+            <a href="/" class="lang-btn active">한국어</a>
+            <a href="/en/" class="lang-btn">English</a>
+            <a href="/ja/" class="lang-btn">日本語</a>
+        </div>
+
         <!-- 상단 프로모션 배너 이미지 -->
         <div class="banner-wrap">
-            <img src="/banner.jpg" alt="K-달력 한국의 전통과 현대적 실용성의 조화" class="banner-img">
+            <img src="/banner_ko.jpg" alt="K-달력 한국의 전통과 현대적 실용성의 조화" class="banner-img">
         </div>
 
         <!-- 하단 본문 및 메뉴 -->

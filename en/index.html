@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>K-Calendar - Asian Heritage & Modern Utility</title>
+    <meta name="description" content="Harmonizing Asian heritage with modern utility. 100-Year Lunar Calendar, 24 Solar Terms, Tactile 3D Paper Tear-Off, Zodiac Horoscope & Notes.">
+    <link rel="alternate" hreflang="ko" href="https://kkant23.github.io/">
+    <link rel="alternate" hreflang="en" href="https://kkant23.github.io/en/">
+    <link rel="alternate" hreflang="ja" href="https://kkant23.github.io/ja/">
+    <link rel="alternate" hreflang="x-default" href="https://kkant23.github.io/">
+    <style>
+        :root {
+            --primary: #8C2D19;
+            --primary-hover: #732414;
+            --bg: #FBF9F5;
+            --card-bg: #FFFFFF;
+            --text-main: #2D241E;
+            --text-sub: #665C54;
+            --border: #ECE4D8;
+        }
+        * {
+            box-sizing: border-box;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            margin: 0;
+            padding: 30px 16px;
+            background-color: var(--bg);
+            color: var(--text-main);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .container {
+            max-width: 760px;
+            width: 100%;
+            background: var(--card-bg);
+            border-radius: 24px;
+            box-shadow: 0 12px 36px rgba(140, 45, 25, 0.08);
+            border: 1px solid var(--border);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+        .lang-bar {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            padding: 10px 18px;
+            background: #FAFAFA;
+            border-bottom: 1px solid var(--border);
+            gap: 6px;
+        }
+        .lang-btn {
+            padding: 5px 12px;
+            font-size: 13px;
+            font-weight: 500;
+            color: var(--text-sub);
+            text-decoration: none;
+            border-radius: 16px;
+            transition: all 0.2s ease;
+        }
+        .lang-btn:hover {
+            background: #EFE8E1;
+            color: var(--text-main);
+        }
+        .lang-btn.active {
+            background: var(--primary);
+            color: #FFFFFF;
+            font-weight: 600;
+        }
+        .banner-wrap {
+            width: 100%;
+            background-color: #F8F9FB;
+            border-bottom: 1px solid var(--border);
+            overflow: hidden;
+            line-height: 0;
+        }
+        .banner-img {
+            width: 100%;
+            height: auto;
+            display: block;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+        .content-area {
+            padding: 32px 28px;
+            text-align: center;
+        }
+        h1 {
+            font-size: 24px;
+            margin: 0 0 10px 0;
+            color: var(--primary);
+            font-weight: 700;
+            letter-spacing: -0.5px;
+        }
+        p.desc {
+            font-size: 15px;
+            line-height: 1.6;
+            color: var(--text-sub);
+            margin: 0 auto 28px auto;
+            max-width: 600px;
+        }
+        .btn-group {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            align-items: center;
+        }
+        a.btn {
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 15px;
+            border-radius: 14px;
+            transition: all 0.2s ease;
+            cursor: pointer;
+        }
+        a.btn-download {
+            background-color: var(--primary);
+            color: #FFFFFF;
+            width: 100%;
+            max-width: 420px;
+            padding: 15px 24px;
+            font-size: 16px;
+            box-shadow: 0 4px 14px rgba(140, 45, 25, 0.25);
+        }
+        a.btn-download:hover {
+            background-color: var(--primary-hover);
+            transform: translateY(-1px);
+        }
+        .sub-btn-group {
+            display: flex;
+            gap: 8px;
+            width: 100%;
+            max-width: 420px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        a.btn-sub {
+            flex: 1 1 120px;
+            background-color: #F5EFE9;
+            color: var(--text-main);
+            padding: 11px 16px;
+            font-size: 13px;
+        }
+        a.btn-sub:hover {
+            background-color: #EAE1D7;
+        }
+        .footer {
+            margin-top: 24px;
+            font-size: 12px;
+            color: #9E938A;
+        }
+        @media (max-width: 480px) {
+            .content-area {
+                padding: 24px 18px;
+            }
+            h1 {
+                font-size: 21px;
+            }
+            p.desc {
+                font-size: 14px;
+            }
+            .sub-btn-group {
+                flex-direction: column;
+            }
+            a.btn-sub {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Language Switcher Bar -->
+        <div class="lang-bar">
+            <a href="/" class="lang-btn">한국어</a>
+            <a href="/en/" class="lang-btn active">English</a>
+            <a href="/ja/" class="lang-btn">日本語</a>
+        </div>
+
+        <!-- Top Promotional Banner Image -->
+        <div class="banner-wrap">
+            <img src="/banner_en.jpg" alt="K-Calendar Harmonizing Asian Heritage With Modern Utility" class="banner-img">
+        </div>
+
+        <!-- Body & Actions -->
+        <div class="content-area">
+            <h1>K-Calendar (Traditional Tear-Off Calendar)</h1>
+            <p class="desc">
+                Harmonizing Asian heritage with modern utility. A mindful daily companion featuring 100-year lunar conversions, 24 solar terms, auspicious moving days, tactile 3D paper tear-off daily calendar, and authentic Eastern Zodiac horoscope analysis.
+            </p>
+
+            <div class="btn-group">
+                <a href="https://apps.apple.com/app/id6829391447" class="btn btn-download" target="_blank" rel="noopener">
+                     Download Free on App Store
+                </a>
+                <div class="sub-btn-group">
+                    <a href="/kcalendar/support_en.html" class="btn btn-sub">
+                        Customer Support
+                    </a>
+                    <a href="/kcalendar/privacy_en.html" class="btn btn-sub">
+                        Privacy Policy
+                    </a>
+                    <a href="/app-ads.txt" class="btn btn-sub">
+                        app-ads.txt
+                    </a>
+                </div>
+            </div>
+
+            <div class="footer">
+                © 2026 Kant (Jung Gu Kim). All rights reserved.
+            </div>
+        </div>
+    </div>
+</body>
+</html>
